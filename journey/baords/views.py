@@ -13,3 +13,4 @@ def baords_topics(request, pk):
     baords = Board.objects.get(pk=pk)
     return render(request, 'topics.html', {'baords':baords})
 
+
