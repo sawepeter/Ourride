@@ -26,6 +26,12 @@ class HomeTests(TestCase):
         baords_topics_url = reverse('board_topics', kwargs={'pk': self.baords.pk})
         self.assertContains(self.response, 'href="{0}"'.format(baords_topics_url))
 
+    def test_board_topics_view_contains_link_back_to_homepage(self):
+        baords_topics_url = reverse('board_topics', kwargs={'pk': 1})
+        response = self.client.get(baords_topics_url)
+        homepage_url = reverse('home')
+        self.assertContains(response, 'href="{0}"'.format(homepage_url))
+
 class BoardTopicsTests(TestCase):
     def setUp(self):
         Board.objects.create(name='Django', description='Django board.')
