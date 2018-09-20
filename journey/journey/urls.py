@@ -17,12 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 
-from journey import baords
+
 
 urlpatterns = [
     path('', include('baords.urls')),
     re_path('baords/', include('baords.urls')),
-    re_path('baords/new/', include(baords.urls)),
+    path('baords/new/', include('baords.urls')),
     path('admin/', admin.site.urls),
 
 ]
