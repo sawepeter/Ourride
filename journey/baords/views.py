@@ -13,4 +13,8 @@ def baords_topics(request, pk):
     baords = get_object_or_404(Board, pk=pk)
     return render(request, 'topics.html', {'baords':baords})
 
+def new_topic(request, pk):
+    baords = get_object_or_404(Board, pk=pk)
+    return render(request, 'new_topic.html', {'baords':baords})
+
 
